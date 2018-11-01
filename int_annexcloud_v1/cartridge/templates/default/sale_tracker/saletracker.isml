@@ -1,0 +1,25 @@
+<isset name="orderid" value="${pdict.Order.getCurrentOrderNo()}" scope="page" />
+<isset name="amount" value="${pdict.Order.totalGrossPrice.value}" scope="page" />
+<isset name="email" value="${pdict.CurrentCustomer.profile.getEmail()}" scope="page" />
+<isset name="firstName" value="${pdict.CurrentCustomer.profile.getFirstName()}" scope="page" />
+<isset name="lastName" value="${pdict.CurrentCustomer.profile.getLastName()}" scope="page" />
+<isset name="siteID" value="${dw.system.Site.getCurrent().getPreferences().getCustom()['acSiteId']}" scope="page" />
+
+<iscomment>
+SA-Order : <isprint value="${orderid}"/></br>
+SA-Amount : <isprint value="${amount}"/></br>
+SA-Email : <isprint value="${email}"/></br>
+</iscomment>
+
+<isscript>	
+    var stringUtils = require('dw/util/StringUtils');
+    
+	var OrderDetailsJSONObj = {};
+	OrderDetailsJSONObj.site_id = siteID;
+	OrderDetailsJSONObj.email_id = pdict.CurrentCustomer.profile.getEmail();
+	OrderDetailsJSONObj.order_id= pdict.Order.getCurrentOrderNo();
+	OrderDetailsJSONObj.sale_amount = pdict.Order.totalGrossPrice.value;
+	var encodedParameter = stringUtils.encodeBase64(JSON.stringify(OrderDetailsJSONObj));
+</isscript>
+<isset name="encodedParams" value="${encodedParameter}" scope="page" />
+<script src="https://c1.socialannex.com/sale-track/?parameter=${encodedParams}" ></script>

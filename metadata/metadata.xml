@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="acEnableLoyalty">
+                <display-name xml:lang="x-default">Activate Loyalty Program</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acEnableRAF">
+                <display-name xml:lang="x-default">Activate Refer-A-Friend</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>          
+            <attribute-definition attribute-id="acEnableSaleTrack">
+                <display-name xml:lang="x-default">Activate Sale Track</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acEnableSnS">
+                <display-name xml:lang="x-default">Activate Share and Save</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>           
+            <attribute-definition attribute-id="acEnableVC">
+                <display-name xml:lang="x-default">Activate Visual Commerce</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>     
+            <attribute-definition attribute-id="acLoyaltyAccessToken">
+                <display-name xml:lang="x-default">Loyalty Program Access Token</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <default-value>1</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acLoyaltyDashboardPageId">
+                <display-name xml:lang="x-default">Dashboard Page ID</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="acRAFdashboardPageId">
+                <display-name xml:lang="x-default">Refer A Friend Dashboard Page ID</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="acSiteId">
+                <display-name xml:lang="x-default">Site ID</display-name>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>7</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="acVCcategoryPageId">
+                <display-name xml:lang="x-default">VC Category Page Id</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>1</field-length>
+                <default-value>3.0</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acVCcategoryPageType">
+                <display-name xml:lang="x-default">Visual Commerce Category Page Type</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <default-value>Category</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acVCgalleryPageId">
+                <display-name xml:lang="x-default">VC Gallery Page Id</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>1</field-length>
+                <default-value>7.0</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acVChomePageId">
+                <display-name xml:lang="x-default">VC Home Page Id</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>2</field-length>
+                <default-value>1.0</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="acVCproductPageId">
+                <display-name xml:lang="x-default">VC Product Page Id</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>1</field-length>
+                <default-value>2.0</default-value>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="AnnexCloudConfig">
+                <display-name xml:lang="x-default">Annex Cloud Configuration</display-name>
+                <attribute attribute-id="acSiteId"/>
+                <attribute attribute-id="acEnableSnS"/>
+                <attribute attribute-id="acEnableVC"/>
+                <attribute attribute-id="acEnableLoyalty"/>
+                <attribute attribute-id="acEnableRAF"/>
+                <attribute attribute-id="acRAFdashboardPageId"/>
+                <attribute attribute-id="acEnableSaleTrack"/>
+            </attribute-group>
+            <attribute-group group-id="VisualCommerceConfig">
+                <display-name xml:lang="x-default">Visual Commerce Config</display-name>
+                <attribute attribute-id="acVChomePageId"/>
+                <attribute attribute-id="acVCproductPageId"/>
+                <attribute attribute-id="acVCcategoryPageId"/>
+                <attribute attribute-id="acVCcategoryPageType"/>
+                <attribute attribute-id="acVCgalleryPageId"/>
+            </attribute-group>
+            <attribute-group group-id="LoyaltyProgramConfig">
+                <display-name xml:lang="x-default">Loyalty Program Config</display-name>
+                <attribute attribute-id="acLoyaltyAccessToken"/>
+                <attribute attribute-id="acLoyaltyDashboardPageId"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

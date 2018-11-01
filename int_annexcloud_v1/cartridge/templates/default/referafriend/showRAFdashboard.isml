@@ -1,0 +1,42 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isdecorate template="account/pt_account"/>
+<isinclude template="util/modules"/>
+
+	<isslot id="account-banner" description="Banner for My Account pages" context="global" />
+<iscomment>
+	<h1>
+		${Resource.msg('account.header','account',null)} | 
+		<isprint value="${pdict.CurrentCustomer.profile.firstName}"/>&nbsp;<isprint value="${pdict.CurrentCustomer.profile.lastName}"/>
+		<span class="account-logout">(<a title="Logout" href="${URLUtils.https('Login-Logout')}">${Resource.msg('global.logout','locale',null)}</a>)</span>
+	</h1>
+ </iscomment>	
+	<div>
+		<div id='sa_refer_friend'></div>
+		<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('acEnableRAF')}">
+			<script type="text/javascript">
+			var sa_s2_email_id = "${pdict.CurrentCustomer.profile.email}";
+			var sa_siteid = ${dw.system.Site.getCurrent().getCustomPreferenceValue('acSiteId')};
+			var sa_page=${dw.system.Site.getCurrent().getCustomPreferenceValue('acRAFdashboardPageId')}; 
+		    var sa_uni = sa_uni || [];
+		    sa_uni.push(['sa_pg', sa_page]);
+		    (function () { function sa_async_load() { 
+			var sa = document.createElement('script'); 
+			sa.type = 'text/javascript'; 
+			sa.async = true; 
+			sa.src = '//cdn.socialannex.com/partner/'+sa_siteid+'/universal.js'; 
+			var sax = document.getElementsByTagName('script')[0]; 
+			sax.parentNode.insertBefore(sa, sax); 
+			} if (window.attachEvent) { 
+				window.attachEvent('onload', sa_async_load); 
+				} else { 
+					window.addEventListener('load', sa_async_load, false); 
+				} 
+			})();
+	</script>
+	
+		<iselse/>
+			Please activate Refer-A-Friend Dashboard.
+		</isif>
+	</div>
+		
+</isdecorate>

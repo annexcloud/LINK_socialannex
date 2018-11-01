@@ -1,0 +1,7 @@
+<iscomment>
+Email ID: ${pdict.CurrentHttpParameterMap.emailId.value}</br>
+First Name: ${pdict.CurrentHttpParameterMap.firstName.value}</br>
+Last Name: ${pdict.CurrentHttpParameterMap.lastName.value}</br> 
+Action ID: ${pdict.CurrentHttpParameterMap.actionId.value}</br> 
+GivePoints Response: ${pdict.htmlOPresponse}</br>
+</iscomment>

@@ -1,0 +1,17 @@
+<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acEnableSnS']}">
+	<script type="text/javascript">
+		window.s4AsyncInit = function() {
+			S4Obj.init({
+				siteid:"${dw.system.Site.getCurrent().getPreferences().getCustom()['acSiteId']}",
+				incentiveID:${pdict.incentiveid},
+				scraper:{
+					produrl:window.location.href,
+				   	imgurl:"http://socialannex01.tech-prtnr-na02.dw.demandware.net/on/demandware.static/-/Sites-apparel-catalog/default/dwd898b944/images/medium/PG.10247474.JJP49XX.PZ.jpg",
+				   	desc:"There is no one who loves pain  itself, who seeks after it and wants to have it, simply because it is pain..",
+				   	title:"Shop more"
+				}
+			});
+		}
+	</script>
+	<script src="https://cdn.socialannex.com/s4/v2/js/s4-main.min.js"></script>
+</isif>

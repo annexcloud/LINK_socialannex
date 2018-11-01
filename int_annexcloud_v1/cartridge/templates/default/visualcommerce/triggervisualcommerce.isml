@@ -1,0 +1,3 @@
+<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acEnableVC']}"/>
+	<isinclude url="${URLUtils.url('VisualCommerce-StartVC', 'pageid', pdict.pageid ,'productid', pdict.productid, 'categoryid', pdict.categoryid)}"/>
+</isif>

@@ -1,0 +1,8 @@
+<iscache type="relative" hour="24"/>
+<isdecorate template="content/home/pt_storefront">
+	<isinclude template="util/modules_annexcloud">
+	<issavisualcommerce pageid="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVCgalleryPageId']}"/>
+	<div class="home-bottom">
+		<isslot id="home-bottom" description="Bottom content below flash banner " context="global" />
+	</div>
+</isdecorate>

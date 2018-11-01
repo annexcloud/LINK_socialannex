@@ -1,0 +1,83 @@
+<isset name="sas22VCPageId" value="${pdict.CurrentHttpParameterMap.pageid.stringValue}" scope="page"/>
+<isset name="sas22siteid" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('acSiteId')}" scope="page"/>
+<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVChomePageId'] == sas22VCPageId}">
+	<script>
+		var sa_page="${sas22VCPageId}";
+	</script>
+	<div id="sa_s22_instagram"></div>
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVCproductPageId'] == sas22VCPageId}">
+	<script>
+		var sa_page="${sas22VCPageId}";
+		var sa_s22_product_code="${pdict.CurrentHttpParameterMap.productid.stringValue}";
+	</script>
+	<div id="sa_s22_instagram"></div>
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVCcategoryPageId'] == sas22VCPageId}">
+	<isset name="sas22CategoryCode" value="" scope="page" />
+	<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVCcategoryPageType'] == 'Category'}" />
+		<isset name="sas22CategoryCode" value="${pdict.CurrentHttpParameterMap.categoryid.stringValue}" scope="page" />
+	</isif>
+	
+	<script>
+		var sa_page="${sas22VCPageId}";
+		var sa_instagram_category_type="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVCcategoryPageType']}";
+		var sa_instagram_category_code="${sas22CategoryCode}";
+	</script>
+	<div id="sa_s22_instagram"></div>
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getPreferences().getCustom()['acVCgalleryPageId'] == sas22VCPageId}">
+	<script>
+		var sa_page="${sas22VCPageId}";
+	</script>
+	<div id="sa_s22_instagram_gallery"></div>
+</isif>
+<isif condition="${sas22VCPageId != dw.system.Site.getCurrent().getPreferences().getCustom()['acVCproductPageId']}" />
+	<script type='text/javascript'>
+		var sa_uni = sa_uni || [];
+		sa_uni.push(['sa_pg', '${sas22VCPageId}']);
+		(function() {
+		
+		function sa_async_load() {
+			var sa = document.createElement('script');
+			sa.type = 'text/javascript';
+			sa.async = true;
+			sa.src = '//cdn.socialannex.com/partner/${sas22siteid}/universal.js';
+			var sax = document.getElementsByTagName('script')[0];
+			sax.parentNode.insertBefore(sa, sax);
+		}
+
+		if (window.attachEvent) {
+			window.attachEvent('onload', sa_async_load);
+		}
+		else {
+			window.addEventListener('load', sa_async_load,false);
+		}
+	}
+)();
+	</script>
+<iselseif condition="${sas22VCPageId == dw.system.Site.getCurrent().getPreferences().getCustom()['acVCproductPageId'] && dw.system.Site.getCurrent().getPreferences().getCustom()['acEnableRnR'] == false}">
+	<script>
+		var sa_uni = sa_uni || [];
+		sa_uni.push(['sa_pg', '${sas22VCPageId}']);
+		(function() {
+		function sa_async_load() {
+			var sa = document.createElement('script');
+			sa.type = 'text/javascript';
+			sa.async = true;
+			sa.src = '//cdn.socialannex.com/partner/${sas22siteid}/universal.js';
+			var sax = document.getElementsByTagName('script')[0];
+			sax.parentNode.insertBefore(sa, sax);
+		}
+
+		if (window.attachEvent) {
+			window.attachEvent('onload', sa_async_load);
+		}
+		else {
+			window.addEventListener('load', sa_async_load,false);
+		}
+	}
+)();
+	</script>
+</iselseif>
+</isif>

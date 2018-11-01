@@ -1,0 +1,21 @@
+<iscomment> Share & Save v2 </iscomment>
+<ismodule 
+template="share_n_save/universal.isml"
+name="snsv2universal"
+attribute="incentiveid"
+attribute="siteid"
+/>
+
+
+<iscomment> Visual Commerce </iscomment>
+<ismodule 
+template="visualcommerce/triggervisualcommerce.isml"
+name="savisualcommerce"
+attribute="pageid"
+attribute="productid"
+attribute="categoryid"
+/>
+
+
+<iscomment> Sale Tracking Script </iscomment>
+<ismodule template ="sale_tracker/saletracker.isml" name="saletracker" attribute='sadebug'/>
